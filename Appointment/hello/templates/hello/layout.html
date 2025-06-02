@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/site.css' %}"/>
+    <link rel="stylesheet" href="{% static 'hello/style.css' %}">
+
+</head>
+
+<body>
+
+{% if user.is_authenticated %}
+  <div >
+   Loged in as: <strong>{{ user.username }}</strong>
+    <span style="font-size: 0.95em; color: #892929;">({{ user.role }})</span>
+  </div>
+  </div>
+{% else %}
+  <div>
+    You are not loged in.
+  </div>
+{% endif %}
+
+{% if user.is_authenticated %}
+  <a href="{% url 'delete_account' %}" class="delete-account-link">Delete account</a>
+{% endif %}
+
+
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<div class="navbar">
+
+    <a href="{% url 'home' %}" class="navbar-brand">Home</a>
+   
+    {% if user.is_authenticated %}
+        {% if user.role == 'client' %}
+            <a href="{% url 'available_slots' %}" class="navbar-item">Book appointment</a>
+            <a href="{% url 'my_bookings' %}" class="navbar-item">My bookings</a>
+        {% elif user.role == 'provider' %}
+            <a href="{% url 'create_timeslot' %}" class="navbar-item">New timeslot</a>
+            <a href="{% url 'timeslot_list' %}" class="navbar-item">My timeslot</a>
+        {% endif %}
+        <a href="{% url 'logout' %}" class="navbar-item">Log out</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="navbar-item">Log in</a>
+        <a href="{% url 'register' %}" class="navbar-item">Registration</a>
+    {% endif %}
+
+    <a href="{% url 'log' %}" class="navbar-item">New Message</a>
+    <a href="{% url 'about' %}" class="navbar-item">About</a>
+
+</div>
+
+
+
+<div class="body-content">
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+    <hr/>
+</div>
+</body>
+</html>

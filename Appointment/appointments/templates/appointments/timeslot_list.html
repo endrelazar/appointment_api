@@ -1,0 +1,11 @@
+{% extends "hello/layout.html" %}
+{% block content %}
+  <h2>My timeslots list</h2>
+  <ul>
+    {% for slot in slots %}
+      <li>{{ slot.start }} - {{ slot.end }} {% if slot.is_booked %}(Foglalt){% endif %}</li>
+    {% empty %}
+      <li>You dot have timeslots yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

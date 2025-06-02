@@ -1,0 +1,17 @@
+{% extends "hello/layout.html" %}
+{% block content %}
+  <h2>My bookings</h2>
+  <ul>
+    {% for booking in bookings %}
+      <li>
+        {{ booking.timeslot.start }} - {{ booking.timeslot.end }} ({{ booking.timeslot.provider.username }})
+        <form action="{% url 'cancel_booking' booking.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+            <button type="submit">Cancel</button>
+        </form>
+      </li>
+    {% empty %}
+      <li>You have no bookings.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

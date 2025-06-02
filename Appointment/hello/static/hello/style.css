@@ -1,0 +1,52 @@
+body {
+    background: #a1b6cb;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #dbdb94;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+h1, h2 {
+    color: #ff0000;
+}
+button, .btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+button:hover, .btn:hover {
+    background: #0056b3;
+}
+ul.messages {
+    list-style: none;
+    padding: 0;
+}
+ul.messages li {
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+}
+ul.messages li.success { background: #d4edda; color: #155724; }
+ul.messages li.error { background: #f8d7da; color: #721c24; }
+ul.messages li.warning { background: #fff3cd; color: #856404; }
+
+.delete-account-link {
+    color: #c82333;
+    font-weight: bold;
+    margin-left: 16px;
+    text-decoration: none;
+}
+.delete-account-link:hover {
+    color: #a71d2a;
+    text-decoration: underline;
+}

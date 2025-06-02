@@ -1,0 +1,17 @@
+{% extends "hello/layout.html" %}
+{% block content %}
+  <h2>Available Slots</h2>
+  <ul>
+    {% for slot in slots %}
+      <li>
+        {{ slot.provider.username }}: {{ slot.start }} - {{ slot.end }}
+        <form action="{% url 'book_slot' slot.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit">Reserv</button>
+        </form>
+      </li>
+    {% empty %}
+      <li>No free slot</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

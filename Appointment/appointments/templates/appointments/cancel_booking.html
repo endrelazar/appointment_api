@@ -1,0 +1,10 @@
+{% extends "hello/layout.html" %}
+{% block content %}
+  <h2>Are you sure you want to cancel this booking?</h2>
+  <p>{{ booking.timeslot.start }} - {{ booking.timeslot.end }} ({{ booking.timeslot.provider.username }})</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">yes, I do</button>
+    <a href="{% url 'my_bookings' %}">Cancel</a>
+  </form>
+{% endblock %}
