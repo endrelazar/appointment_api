@@ -8,7 +8,9 @@ SECRET_KEY = 'e*^2v5wk$27m-0&^7khsy3^j&ppyf4b(4s99$13tzr*p8i3!s7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['appointment-api-l3vj.onrender.com',
+    '127.0.0.1', 
+    'localhost']
 
 AUTH_USER_MODEL = 'accounts.User'
 
