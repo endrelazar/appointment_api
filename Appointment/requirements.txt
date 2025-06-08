@@ -5,3 +5,4 @@ tzdata==2024.1
 djangorestframework==3.15.1
 drf-yasg==1.21.7
 dj-database-url==1.2.0
+gunicorn==21.2.0
