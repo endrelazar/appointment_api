@@ -10,7 +10,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['appointment-api-l3vj.onrender.com',
     '127.0.0.1', 
-    'localhost']
+    'localhost',
+    '*',]
 
 AUTH_USER_MODEL = 'accounts.User'
 
