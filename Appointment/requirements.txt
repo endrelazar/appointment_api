@@ -7,3 +7,4 @@ drf-yasg==1.21.7
 dj-database-url==1.2.0
 gunicorn==21.2.0
 whitenoise==6.4.0
+setuptools==80.9.0
