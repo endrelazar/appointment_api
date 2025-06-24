@@ -12,8 +12,13 @@ class TimeSlot(models.Model):
     
 class Booking(models.Model):
     client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings', limit_choices_to={'role': 'client'})
-    timeslot = models.OneToOneField('TimeSlot', on_delete=models.CASCADE)
+    timeslot = models.ForeignKey(TimeSlot, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    STATUS_CHOICES = (
+        ('active', 'Active'),
+        ('cancelled', 'Cancelled'),
+    )
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
 
     def __str__(self):
         return f"{self.client.username} reserved: {self.timeslot}"
